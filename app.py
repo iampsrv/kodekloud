@@ -19,12 +19,12 @@ def todo():
 def add_todo():
     task = request.form.get('todo')
     todos[str(uuid.uuid4())] = task  # Using UUID to generate unique IDs
-    return redirect(url_for('index'))
+    return redirect(url_for('todo'))
 
 @app.route('/delete/<id>')
 def delete(id):
     todos.pop(id, None)
-    return redirect(url_for('index'))
+    return redirect(url_for('todo'))
 
 if __name__ == "__main__":
     # app.run(port=5000,debug=True)
